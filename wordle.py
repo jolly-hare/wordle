@@ -1,6 +1,9 @@
 import datetime
 import json
 import re
+import nltk
+import time
+
 
 
 # as of January 5, 2022....
@@ -75,13 +78,34 @@ def hints(wl):
                 print(word)
 
 
+def calc_edit_distance(wl, ans):
+    distances = {}
+    tic = time.perf_counter()
+    for i in ans:
+        for j in wl:
+            dist = nltk.edit_distance(i, j)
+            if dist in distances:
+                distances[dist] += 1
+            else:
+                distances[dist] = 1
+    toc = time.perf_counter()
+    print(f'Calculated {sum(x for x in distances.values())} distances in {toc - tic:0.2f} seconds')
+    #distances = {1: 46326, 2: 616059, 3: 5384578, 4: 26235133, 5: 51847810}  # wordlist x wordlist
+    #distances = {0: 2315, 1: 13648, 2: 160098, 3: 1450456, 4: 8279588, 5: 20124075}  # answers x wordlist
+    print('The number of words with a nltk.edit_distance(word1, word2):')
+    print(sorted(distances.items(), key=lambda x: x[1]))
+
+
 if __name__ == "__main__":
     show_me_the_answer = False  # do you want to see today's answer?
     calc_freqs = False  # do you want to calculate letter frequencies and word scores?
+    calc_distances = False  # do you want to calculate edit distances between valid words?
 
     wordlist, answers = load_wordlists()
     if show_me_the_answer:
         todays_answer(answers)
     if calc_freqs:
         score_words(wordlist, get_letter_freq(wordlist))
+    if calc_distances:
+        calc_edit_distance(wordlist, answers)
     hints(wordlist)  # to list eligible words, update these regexp each round (as desired) of your puzzle
