@@ -13,3 +13,6 @@ To reveal today's answer (based on your system's local time), set the line 79 sh
 
 # letter frequency
 To display the word lists' letter frequencies and some suggested high scoring words, set the line 80 calc_freqs variable to True
+
+# edit_distance
+Calculate the Levenshtein edit-distance between two words: the answers and the wordlist
