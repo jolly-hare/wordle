@@ -8,7 +8,7 @@ I extracted the word lists from Wordle's javascript files on February 15, 2022 a
 The New York Times also removed a number of words from the original valid words and answer words lists that are offensive or racial slurs. I'm leaving those orignal word lists intact in this repo, but I do not condone the use of that offensive or derogatory language.
 
 # general usage
-python wordle.py {green} {yellow} {grey}
+`python wordle.py {green} {yellow} {grey}`
 
 {green} is any green letters, with "." for spaces: \"a..s.\", or \".....\" for none
 
@@ -17,13 +17,13 @@ python wordle.py {green} {yellow} {grey}
 {grey} is any grey letters: \"xz\" or \".\" for none
 
 
-Example (new puzzle): wordle.py ..... . .
+Example (new puzzle): `wordle.py ..... . .`
 
-Example (only grey): wordle.py ..... . untilxyz
+Example (only grey): `wordle.py ..... . untilxyz`
 
-Example (few yellow and grey): wordle.py ..... ar utlxyz
+Example (few yellow and grey): `wordle.py ..... ar utlxyz`
 
-Example (few green and grey): wordle.py ar... . utlxyz
+Example (few green and grey): `wordle.py ar... . utlxyz`
 
         
 Reflect your puzzle's progress in the form of grey (unused) letters, yellow (wrong position) letters, and green (correct position) letters. The script will output eligible words that meet those criteria.
