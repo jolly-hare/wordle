@@ -5,6 +5,8 @@ Wordle is available here: https://www.nytimes.com/games/wordle/index.html
 
 I extracted the word lists from Wordle's javascript files on February 15, 2022 and include them here as separate text files. If the New York Times changes their wordlists or the underlying game logic then this script has a good chance of misleading you.... but until then it'll work!
 
+The New York Times also removed a number of words from the original valid words and answer words lists that are offensive or racial slurs. I'm leaving those orignal word lists intact in this repo, but I do not condone the use of that offensive or derogatory language.
+
 # general usage
 Usage: python wordle.py {green} {yellow} {grey}
 {green} is any green letters, with "." for spaces: \"a..s.\", or \".....\" for none
